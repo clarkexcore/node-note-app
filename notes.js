@@ -22,9 +22,9 @@ const addNote = function(title, body){
             body: body
         });
         saveNotes(notes);
-        console.log("New Note Added");
+        console.log(chalk.green.bold.inverse("New Note Added"));
     } else {
-        console.log("Note title taken. ERROR ERROR.");
+        console.log(chalk.red.bold.inverse("Note title taken. ERROR ERROR."));
     }
 
 }
