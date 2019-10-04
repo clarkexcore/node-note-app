@@ -33,12 +33,14 @@ const removeNote = (title) => {
     }
 }
 
+//List all notes created
 const listNotes = () => {
     const notes = loadNotes();
     console.log(chalk.cyan.bold.inverse("Your Notes"))
     notes.forEach((note) => console.log(note.title));
 }
 
+//Read notes
 const readNote = (title) => {
     const notes = loadNotes();
     const findNote = notes.find((note) => note.title === title);
@@ -51,11 +53,13 @@ const readNote = (title) => {
     }
 }
 
+//Save notes function for add/remove
 const saveNotes = (notes) => {
     const dataJSON = JSON.stringify(notes);
-    fs.writeFileSync("notes.json", dataJSON);
+    fs.writeFileSync("notes.json", dataJsON);
 }
 
+//Load notes file
 const loadNotes = () => {
     try{
         const dataBuffer = fs.readFileSync("notes.json");
