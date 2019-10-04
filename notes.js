@@ -56,7 +56,7 @@ const readNote = (title) => {
 //Save notes function for add/remove
 const saveNotes = (notes) => {
     const dataJSON = JSON.stringify(notes);
-    fs.writeFileSync("notes.json", dataJsON);
+    fs.writeFileSync("notes.json", dataJSON);
 }
 
 //Load notes file
