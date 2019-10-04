@@ -44,23 +44,31 @@ yargs.command({
     }
 })
 
-//Create a read command
-yargs.command({
-    command: "read",
-    describe: "Reading a note",
-    handler: (argv) => {
-        console.log("Reading a note");
-    }
-})
-
 //Create a listing command
 yargs.command({
     command: "list",
     describe: "List all notes",
-    handler: (argv) => {
-        console.log("List all the notes");
+    handler: () => {
+        notes.listNotes();
     }
 })
+
+//Create a read command
+yargs.command({
+    command: "read",
+    describe: "Reading a note",
+    builder: {
+        title: {
+            description: "Title for reading note",
+            demandOption: true,
+            type: "string"
+        }
+    },
+    handler: (argv) => {
+        notes.readNote(argv.title);
+    }
+})
+
 
 yargs.parse();
 
